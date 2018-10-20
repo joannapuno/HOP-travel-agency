@@ -1,0 +1,893 @@
+/* // Code by Joanna Puno
+// Email: j.puno0909@gmail.com
+// 10/19/2018
+// CPNT 262 -WBD Web Client and Server Programming
+// Instructor: Heather Tovery
+// JavaScript */
+
+
+/* * * * * * * * * * * * * * * * * * * * *
+General
+* * * * * * * * * * * * * * * * * * * * */
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 30px;
+      font-weight: 400;
+  }
+  
+  h2 {
+      font-family: 'Roboto', serif;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      margin-top: 5px;
+      text-align: center;    
+  }
+  
+  ul li {
+      list-style: none;
+  }
+  
+  
+  button {
+      color: #fff;
+      border:none;
+      background: #cf1e43;
+      padding: 5px 10px;
+      margin-top: 10px;
+      
+  }
+  button a {
+      color: #fff;
+  }
+  
+  
+  button:hover {
+      cursor: pointer;
+      background: #980021;
+      color: #fff;
+  }
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Header
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  header {
+      height: 66px;
+      background: #ff0037;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      padding-bottom: 5px;
+      padding-left: 20px;
+  
+  }
+  
+  .logo {
+      margin-right: auto;
+  }
+  
+  .logo i {
+      color: #fff;
+  }
+  
+  .logo span {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      margin-left: 5px;
+      color: #fff;
+  }
+  
+  header ul {
+      margin-bottom: 0;
+      display: flex;  
+      list-style: none; 
+      font-size: 15px;        
+  }
+  
+  header li {
+      margin-right: 20px;
+  }
+  
+  header ul li a {
+      height: 66px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+  
+  }
+  
+  header ul li a:hover {
+      background: rgba(255, 255, 255, 0.404);
+  }
+  
+  a:hover {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+  }
+  
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Mobile Menu
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  .menu {
+      width: 200px;
+      opacity: 0.9;
+      background:#cf1e43;
+      height: 60vh;
+      position: absolute;
+      top: 0;
+      right:0;
+      transition: 0.5s;
+      transform: translate(0px, 0px);
+      z-index: 100;
+      display: none;
+  }
+  
+  .menu ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0; 
+  }
+  .menu li { 
+      padding: 0; 
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      width: 80%;
+  }
+  
+  .menu li:hover {
+      background: #d8d8d841;
+  }
+  
+  .closed {
+      transform: translate(500px, 0px);
+      
+  }
+  
+  #close-button {
+      background: transparent;
+      border: none;
+     
+  }
+  
+  #close-button i {
+      color: #fff;
+  }
+  
+  #hamburger-button {
+      display: none;
+      background: transparent;
+      border: none;
+  }
+  
+  #hamburger-button i {
+      color: #fff;
+  }
+  
+  #hamburger-button i:hover {
+      color: #3f3f3f;
+  }
+  
+  @media screen and (max-width:600px){
+      .menu {
+          display: block;
+      }
+      header ul {
+          display: none;
+      }
+      #hamburger-button {
+          display: block;
+          color: #fff;
+      }
+      .logo span {
+          display:none;
+      }
+      .logo i {
+          color: pink;
+      }
+  }
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Hero
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  
+  .hero {
+      background-attachment: fixed;
+      height: 650px;
+      padding: 50px 50px 5px 50px;
+      background-image:url(./img/hero-bg.jpg);
+      background-position: 80% 30%;
+      background-size: cover; 
+      
+
+  }
+  .hero-content {
+      padding: 40px 50px;
+      width: 30%;
+      height: 450px;
+      margin-top: 80px;
+      margin-left: 80px;  
+      background: #fff; 
+      opacity: .90; 
+      display: flex;
+      flex-direction: column;
+  }
+
+  .hero-content h1 {
+      margin-bottom: 10px;
+  }
+
+  #hero-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #hero-form label {
+      margin-bottom: 5px;
+      margin-top: 15px;
+  }
+
+  #submitBtn {
+    color: #fff;
+    border:none;
+    background: #cf1e43;
+    padding: 5px 10px;
+    margin: 15px 0;
+
+  }
+
+  #submitBtn a {
+    color: #fff;
+  }
+
+  #submitBtn:hover {
+    cursor: pointer;
+    background: #980021;
+    color: #fff;
+  }
+  
+  
+  @media screen and (max-width: 700px) {
+      .hero {
+          height: 500px;
+          background-position: 30% 0%;
+          background-image: 
+          linear-gradient(to bottom,
+              rgba(69, 69, 69, 0.092), 
+              rgba(0,0,0,0.0)), 
+          url(./img/hero-bg.jpg);
+      }
+  
+      .hero-content {
+          width: 60%;
+          margin: 20px;
+      }
+  
+      .hero-content h1 {
+          font-size: 50px;
+          margin-bottom: 0px;
+          
+      }
+  
+      .hero-content p {
+          display: none;
+      }
+  
+      .hero-content button {
+          margin-top: 50px;
+          width: 80%;
+          
+          
+      }
+  }
+  
+  @media screen and (max-width:481px) {
+      .hero-content {
+          width: 100%;
+         
+      }
+      .hero-content h1 {
+          margin-bottom:50px;      
+      }   
+  }
+   
+  
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Main
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  main {
+      min-height: 600px;
+      padding: 15px 0px 0px;
+      width: 100%;
+      margin: 30px auto 0;  
+  }
+  
+  /* HOMEPAGE */
+  /* Products Block */
+  
+  .products-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px;
+      position: relative;
+  
+  }
+  
+  main .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+  
+  }
+  
+  main .products-box { 
+      margin: 10px 10px;
+      flex-basis: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+  }
+  
+  main .products-box img, h6, p {
+      margin: 10px;
+      text-align: center;
+  }
+
+ .products-box img {
+      height: 100%;
+      
+  }
+  
+  main .products-box h6 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #4d4d4d;
+  }
+  
+  
+  
+  main .products-box p {
+      font-family: 'Roboto' sans-serif;
+      font-size: 15px;
+      line-height: 1.5em;
+  
+  }
+  
+  main .products-box hr {
+      border: 0.5px solid #3f3f3f64;
+      width: 30px;
+      margin: 5px auto;
+  }
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Welcome Block
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  
+  .agent-block {
+      padding: 50px;
+      width: 100%;
+      min-height: 600px;
+      margin: 10px auto;
+      
+  }
+  
+  .agent-content {
+      text-align: center;
+      display: flex;  
+      justify-content: space-evenly;
+  }
+
+  .agent-box {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      min-height: 600px;
+     
+  }
+
+  .agent-box p {
+      margin-bottom: 5px;
+  }
+  .agent-box h5 {
+      margin-bottom: 10px;
+  }
+  .agent-box i {
+      margin-right: 10px;
+  }
+  .agent-box button {
+      margin-top: 20px;
+  }
+
+  
+  .img-container {
+      width: 300px;
+      height: 100px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      
+  }
+  
+  .img-container img {
+   height: 100%;
+     
+  }
+  
+  @media screen and (max-width: 600px) {
+      .agent-block {
+          padding: 15px;
+      }
+  
+      .agent-content {
+          font-size: 15px;
+      }
+  
+  }
+  
+  @media screen and (max-width: 481px) {
+  
+      .agent-content {
+          padding: 50px 20px;      
+      }
+  }
+  
+  
+  
+
+
+  /* Register */
+
+  .register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register-content {
+    min-width: 70%;
+    background: rgb(238, 238, 238);
+    padding: 50px;
+  }
+
+  #user-register {
+      display: flex;
+      flex-direction: column;
+  }
+
+  #registerBtn {
+    color: #fff;
+    border:none;
+    background: #cf1e43;
+    padding: 5px 10px;
+    margin: 15px 0;
+
+  }
+
+  #registerBtn a {
+    color: #fff;
+  }
+
+  #registerBtn:hover {
+    cursor: pointer;
+    background: #980021;
+    color: #fff;
+  }
+
+  .register-content label {
+    font-size: 15px;
+    margin: 10px 0 5px 0;
+  }
+  .register-content input, label {
+    margin-bottom: 1px;
+  }
+  .register h2{
+    margin-bottom: 10px;
+  }
+  .register p{
+    margin-bottom: 25px;
+  }
+  .register-content input,p, label {
+    font-family: 'Roboto',sans-serif;
+  }
+  
+
+  
+
+  /* PLANE */
+
+  #flying-plane {
+      position: absolute;
+      left: 0;
+      color: #cf1e43;
+      
+  }
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Contact Page
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  .contact-hero {
+      background: linear-gradient(90deg, 
+          #686868a3, 
+          #00000000), 
+          url(./img/beach.jpg);
+      background-attachment: fixed;
+      height: 200px;
+      background-size: cover;
+      margin: 0;
+      position: relative;
+      
+  }
+  
+  .contact-hero-content {
+      min-width: 200px;
+      position: absolute;
+      bottom: 70px;
+      left: 0;
+      right: 0;
+      
+  }
+  
+  .contact-hero-content h2 {
+      margin: 10px;
+      font-size: 30px;
+      color: #fff;
+  }
+
+  
+  .contact-card {
+      min-width: 50%;
+  }
+  
+  
+  .contact-content {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .contact-content label {
+      font-size: 15px;
+      margin: 10px 0 5px 0;
+  }
+  
+  .contact-content input,label {
+      margin-bottom: 15px;
+  }
+  
+  .contact-content label, p, h6 {
+      font-family: 'Roboto',sans-serif;
+  }
+  
+  .contact-content h6 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: #4d4d4d;
+      text-align: left;
+      margin: 0;
+  
+  }
+  .contact-content p {
+      text-align: left;
+      margin: 0 0 10px;
+      font-size: 15px;
+  }
+  
+  
+  .contact-card button {
+      margin: 20px 15px;
+  }
+  
+  @media (max-width:1000px) {
+      .contact-card {
+          min-width: 80%;
+      }
+  }
+  
+  @media (max-width:800px) {
+      .contact-image {
+          display: none;
+      }
+  }
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Products Page
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  .products-hero {
+      background: linear-gradient(90deg, 
+          #686868a3, 
+          #00000000), 
+          url(./img/beach.jpg);
+      background-attachment: fixed;
+      height: 200px;
+      background-size: cover;
+      margin: 0;
+      position: relative;
+      
+  }
+  
+  .products-hero-content {
+      min-width: 200px;
+      position: absolute;
+      bottom: 70px;
+      left: 0;
+      right: 0;
+      
+  }
+  
+  .products-hero-content h2 {
+      margin: 10px;
+      font-size: 30px;
+      color: #fff;
+  }
+  
+  .products {
+      padding: 30px 100px;
+     
+  }
+  
+ .products-content { 
+      margin: 10px 50px 80px;
+      padding: 10px;
+      flex-basis: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.263);
+      transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      transition-duration: 0.3s; 
+      transition-timing-function: ease-out;
+      
+  }
+  
+ .products-content:hover {
+      transform: translateY(-8px);
+  }
+  
+.products-content h6, p {
+      margin: 10px;
+  }
+  
+  .products-content h6 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #4d4d4d;
+      text-align: center;  
+  }
+  
+  .products-content img {
+      width: 250px;
+      height: 200px;
+      margin: 20px auto;   
+  }
+  
+.products-content  p {
+      font-family: 'Roboto' sans-serif;
+      font-size: 15px;
+      line-height: 1.5em;
+  }
+  
+.products-content  hr {
+      border: 0.5px solid #3f3f3f64;
+      width: 30px;
+      margin: 5px auto;
+  }
+  
+  .products-content button {
+      margin: 10px auto;
+  }
+  
+  @media (max-width: 600px) {
+      .products .products-content {
+          min-width: 300px;
+      }
+  }
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  PRE-FOOTER
+  * * * * * * * * * * * * * * * * * * * * */
+  
+  .pre-footer-wrapper {
+      background: rgb(210, 210, 210);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      margin: 80px 0px 0px 0px;
+  }
+  
+  .subscription-box {
+      width: 50%;
+      padding: 20px;
+      margin:30px;
+   
+  }
+  
+  .subscription-box h6 {
+      font-family: 'Roboto',sans-serif;
+      font-size: 40px;
+     
+  }
+  
+  .subscription-box p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+     
+  }
+  
+  .subscription-box .input-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding:20px;
+      width: 300px;
+      margin: 0px auto;
+      
+  }
+  
+  
+  .input-box input {
+      width: 100%;
+      border: none;
+      padding: 10px;
+     
+  }
+  
+  .input-box ::placeholder {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+  
+  .img-box {
+      width: 50%;
+      background-image: url(./img/cruise.jpg);
+      background-size: cover;
+      background-position: center;
+      
+      
+  }
+  
+  @media screen and (max-width:600px) {
+      .img-box {
+          display: none;
+      }
+      .subscription-box {
+          background-image: url(./img/img3.jpg);
+          background-position: 80% 50%;
+          background-size: cover;
+          width: 100%;
+          padding: 20px;
+          margin: 0;
+          
+      }
+      .subscription-box h6 {
+          font-size: 30px;
+      }
+  
+      .subscription-box p {
+          font-size: 15px;
+      }
+  
+      .input-box input {
+          margin-top: 150px;
+      }
+  }
+  
+  @media screen and (max-width: 481px) {
+      
+      .input-box input {
+          margin-top: 80px;
+      }
+  }
+  
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+  Footer
+  * * * * * * * * * * * * * * * * * * * * */
+
+  
+
+  footer {
+      width: 100%;
+      background: #cf1e43;
+  }
+  
+  .container {
+      padding: 20px;
+  }
+  
+  
+  footer h2 {
+      color: #fff;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+      font-family: 'Roboto', sans-serif;
+      text-align: left;
+  }
+  
+  footer ul {
+      margin: 0 0 30px 0;
+      padding: 0;
+  }
+  
+  footer li {
+      margin-top: 8px;
+  }
+  
+  footer a {
+      color:#fff;
+      text-decoration: none;
+      font-size: 0.8em;
+      font-weight: 300;
+  }
+  
+  .social-icons {
+      width: 60%;
+      display: flex;
+      flex-direction: row;
+  }
+  
+  .social-icons li {
+      flex: 1; 
+  }
+  
+  footer span {
+      font-size: 10px;
+      color: #fff;
+      font-family: 'Roboto',sans-serif;
+      letter-spacing: 0.3em;
+      
+  }
+  
+  footer p {
+      color: rgba(255, 255, 255, 0.639);
+      font-size: 15px;
+      
+  }
+
+
+  #currentDate {
+      color: #fff;
+  }
+  
+  
+  
+
+  /* Error */
+
+  #error {
+      color: #cf1e43;
+
+  }
+
+  
