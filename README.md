@@ -27,6 +27,6 @@ Because of the tight schedule, I re-used one of my projects' structure for this 
 ### In conclusion
 As this is a WIP, I would like to clean up my code more and make it responsive as well. I'd like to add more to the visuals and make it look more about travelling.
 
-I will also be connecting my forms to a server where I can retrieve the data put in.
+I will also be connecting my forms to a server and a database where I can retrieve the data put in.
 
 
