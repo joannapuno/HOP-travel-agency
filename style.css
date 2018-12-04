@@ -53,6 +53,11 @@ General
       background: #980021;
       color: #fff;
   }
+
+  .italic-grey {
+      color: grey;
+      font-style: italic;
+  }
   
   /* * * * * * * * * * * * * * * * * * * * *
   Header
@@ -425,14 +430,14 @@ General
   .img-container {
       width: 300px;
       height: 100px;
-      margin-bottom: 20px;
-      overflow: hidden;
+      overflow: hidden; 
+      margin-bottom: 10px;  
       
   }
   
   .img-container img {
    height: 100%;
-     
+   
   }
   
   @media screen and (max-width: 600px) {
