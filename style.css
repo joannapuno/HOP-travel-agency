@@ -265,7 +265,7 @@ General
   }
   
   
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 700px) and (min-width: 360px) {
       .hero {
           height: 500px;
           background-position: 30% 0%;
@@ -274,16 +274,19 @@ General
               rgba(69, 69, 69, 0.092), 
               rgba(0,0,0,0.0)), 
           url(./img/hero-bg.jpg);
+          padding: 20px;
       }
   
       .hero-content {
-          width: 60%;
-          margin: 20px;
+          width: 80%;
+          margin: 0;
+          padding: 10px;
       }
   
       .hero-content h1 {
-          font-size: 50px;
+          font-size: 35px;
           margin-bottom: 0px;
+          text-align: center;
           
       }
   
@@ -291,9 +294,12 @@ General
           display: none;
       }
   
+    .hero-content form {
+        margin-bottom: 50px;
+    }
       .hero-content button {
-          margin-top: 50px;
-          width: 80%;
+          width: 100%;
+          
           
           
       }
@@ -668,8 +674,7 @@ General
       transform: perspective(1px) translateZ(0);
       transform: perspective(1px) translateZ(0);
       transition-duration: 0.3s; 
-      transition-timing-function: ease-out;
-      
+      transition-timing-function: ease-out;  
   }
   
  .products-content:hover {
